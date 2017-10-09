@@ -1,0 +1,41 @@
+﻿生成启动时间为 2017-10-09 11:30:45。
+     1>项目“F:\VsProject\SongSystem\SongSystem\SongSystem.vcxproj”在节点 2 上(clean 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Debug\SongSystem.lastbuildstate”。
+     1>已完成生成项目“F:\VsProject\SongSystem\SongSystem\SongSystem.vcxproj”(clean 个目标)的操作。
+
+项目性能摘要:
+       31 毫秒  F:\VsProject\SongSystem\SongSystem\SongSystem.vcxproj   1 次调用
+                 31 毫秒  clean                                      1 次调用
+
+目标性能摘要:
+        0 毫秒  _SplitProjectReferencesByFileExistence     1 次调用
+        0 毫秒  BeforeCppClean                             1 次调用
+        0 毫秒  Clean                                      1 次调用
+        0 毫秒  CppClean                                   1 次调用
+        0 毫秒  CleanPublishFolder                         1 次调用
+        0 毫秒  CleanReferencedProjects                    1 次调用
+        0 毫秒  AssignProjectConfiguration                 1 次调用
+        0 毫秒  _PrepareForClean                           1 次调用
+        0 毫秒  CoreClean                                  1 次调用
+        0 毫秒  AfterClean                                 1 次调用
+        0 毫秒  PGInstrumentedClean                        1 次调用
+        0 毫秒  AfterCppClean                              1 次调用
+        0 毫秒  BeforeClean                                1 次调用
+       16 毫秒  CoreCppClean                               1 次调用
+       16 毫秒  _CheckForInvalidConfigurationAndPlatform   1 次调用
+
+任务性能摘要:
+        0 毫秒  MakeDir                                    2 次调用
+        0 毫秒  Delete                                     4 次调用
+        0 毫秒  WriteLinesToFile                           2 次调用
+        0 毫秒  FindUnderPath                              2 次调用
+        0 毫秒  ReadLinesFromFile                          1 次调用
+        0 毫秒  RemoveDuplicates                           1 次调用
+        0 毫秒  AssignProjectConfiguration                 1 次调用
+       16 毫秒  CppClean                                   1 次调用
+       16 毫秒  Message                                    2 次调用
+
+生成成功。
+
+已用时间 00:00:00.01

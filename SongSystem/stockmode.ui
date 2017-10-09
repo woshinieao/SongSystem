@@ -1,0 +1,23 @@
+<UI version="4.0" >
+ <class>StockMode</class>
+ <widget class="QWidget" name="StockMode" >
+  <property name="objectName" >
+   <string notr="true">StockMode</string>
+  </property>
+  <property name="geometry" >
+   <rect>
+	<x>0</x>
+	<y>0</y>
+	<width>400</width>
+	<height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>StockMode</string>
+  </property>  
+ </widget>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources/>
+ <connections/>
+</UI>
