@@ -3,8 +3,9 @@
 BuyMode::BuyMode(QWidget *parent)
 	: QWidget(parent)
 {
-	ui.setupUi(this);
+	setupUi(this);
 }
+
 
 BuyMode::~BuyMode()
 {

@@ -86,6 +86,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_sign.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="db_mysql.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="songsystem.h">
@@ -137,6 +140,9 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_sign.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="commen.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

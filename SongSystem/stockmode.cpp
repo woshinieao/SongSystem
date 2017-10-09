@@ -3,7 +3,7 @@
 StockMode::StockMode(QWidget *parent)
 	: QWidget(parent)
 {
-	ui.setupUi(this);
+	setupUi(this);
 }
 
 StockMode::~StockMode()

@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QString>
 #include "ui_sign.h"
+#include "commen.h"
+
+
 
 class Sign : public QWidget,public Ui_Sign
 {
@@ -12,15 +15,14 @@ class Sign : public QWidget,public Ui_Sign
 public:
 	Sign(QWidget *parent = 0);
 	~Sign();
-
 	QString user;
-	Qstring passwd;
+	QString passwd;
 
 public slots:
-		void Signshow();
-
+		void SignInshow();
+		void SignOutshow();
 signals:
-		void sigLogin(QString ,QString);
+		void sigUser(ePermissonUser);
 private:
 	//Ui::Sign ui;
 };

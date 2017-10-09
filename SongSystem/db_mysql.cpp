@@ -1,14 +1,9 @@
-#include "gaurd.h"
 
-#include "StdAfx.h"
 #include <winsock2.h>
 #include "mysql.h"
-
-#include "debug.h"
 #include "mydb.h"
-#include "inifile.h"
-
-
+#include <stdlib.h>
+#include <stdio.h>
 
 static MYSQL       *mysql_conn  = NULL;
 static MYSQL_RES   *mysql_res   = NULL;
@@ -34,14 +29,14 @@ static void *mysql_open_conn(MySQLConf *conf )
     /* initialize mysql structures */
     if (!mysql_init(mysql_conn))
     {
-        OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL, "MYSQL: init failed! %s\n", mysql_error(mysql_conn));
+     
         goto failed;
     }
 
     if (!mysql_real_connect(mysql_conn, conf->host, conf->username, conf->password,
         conf->database, 0, NULL, 0))
     {
-        OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL, "MYSQL: can not connect to database! %s\n", mysql_error(mysql_conn));
+  
         goto failed;
     }
 	
@@ -49,9 +44,7 @@ static void *mysql_open_conn(MySQLConf *conf )
 
 //	mysql_options(mysql_conn, MYSQL_OPT_RECONNECT, (char *)&value);
 
-    OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL,"MYSQL: Succeeded connected to server at %s.\n", conf->host);
-    OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL,"MYSQL: server version %s, client version %s.\n",
-           mysql_get_server_info(mysql_conn), mysql_get_client_info());
+
 
     return mysql_conn;
 
@@ -63,8 +56,7 @@ failed:
 
 static void mysql_close_conn()
 {
-    OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL,"mysql db close connection......\n");
-
+   
     if (mysql_conn == NULL)
         return;
 
@@ -79,7 +71,7 @@ static int mysql_check_conn()
         return DB_FAILURE;
     if (mysql_ping((MYSQL*)mysql_conn))
     {
-        OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL, "MYSQL: database check failed! %s\n", mysql_error(mysql_conn));
+  
         return DB_FAILURE;
     }
     return DB_SUCCESS;
@@ -87,7 +79,7 @@ static int mysql_check_conn()
 
 static void mysql_conf_destroy(MySQLConf *db_conf)
 {
-	OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL, "mysql db destroy......\n");
+
     if (db_conf == NULL)
         return;
     free(db_conf);
@@ -117,7 +109,7 @@ static void* mysql_db_firstrow(const char *sqlstr)
         return NULL;
     if (mysql_num_rows(mysql_res) < 1)
     {
-        OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL, "Could not get count of table. sql: %s\n", sqlstr);
+       
         mysql_free_result(mysql_res);
         mysql_res = NULL;
         return NULL;
@@ -125,7 +117,7 @@ static void* mysql_db_firstrow(const char *sqlstr)
     mysql_row = (MYSQL_ROW *)mysql_fetch_row(mysql_res);
     if (mysql_row == NULL)
     {
-        OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL, "rows found but could not load them. sql: %s\n", sqlstr);
+    
         mysql_free_result(mysql_res);
         mysql_res = NULL;
         return NULL;
@@ -179,25 +171,7 @@ static int mysql_db_errno()
 }
 
 
-char* GetWorkingPath()
-{
-    int iResult = 0;
-    static char pPath[_MAX_PATH];
-    static BOOL bInit = FALSE;
-    if(bInit)
-        return pPath;
-   
-    iResult = GetModuleFileName(NULL,pPath,_MAX_PATH);
-    if(iResult == 0 || iResult>= _MAX_PATH)
-        return NULL;
-    while(pPath[iResult] != '\\' && iResult>= 0)
-    {
-        iResult--;
-    }
-    pPath[iResult] = 0; 
-    bInit = TRUE;
-    return pPath;
-}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 static struct db_ops mysql_ops;
@@ -211,9 +185,6 @@ db_ops *db_init_mysql()
     MySQLConf *db_conf = NULL;
     char      filename[128];
 	char      buf[64];
-	
-    OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL,"db init mysql......\n");
-
     mysql_ops.open         = mysql_open_conn;
     mysql_ops.close        = mysql_close_conn;
     mysql_ops.check        = mysql_check_conn;
@@ -224,48 +195,26 @@ db_ops *db_init_mysql()
     mysql_ops.flush        = mysql_db_flush;
 	mysql_ops.geterrno     = mysql_db_errno;
 
-    sprintf(filename, "%s/%s", GetWorkingPath(), SYS_CFG);
-	
+  
 	db_conf = (MySQLConf *)malloc(sizeof(MySQLConf));
     if (db_conf == NULL)
     {
         return NULL;
     }
 	
-	if( CFG_get_key(filename, "LOG", "LOG", buf ) == CFG_OK)
-		sprintf(log_file,"D:\\var\\www\\media\\log\\gaurd.log",buf);
-	else
-		strcpy(log_file,"D:\\var\\www\\media\\log\\gaurd.log");	
-	printf("%s\n",log_file);
-
-	if( CFG_get_key(filename, "DB", "HOST", buf ) == CFG_OK)
-		strncpy(db_conf->host,buf,32);
-	else
-		strcpy(db_conf->host,"localhost");
-	printf("HOST:%s\n",db_conf->host);
-
-	if( CFG_get_key(filename, "DB", "DATABASE", buf ) == CFG_OK)
-		strncpy(db_conf->database,buf,32);
-	else
-		strcpy(db_conf->database,"db_gp");
-
-	if( CFG_get_key(filename, "DB", "USER", buf ) == CFG_OK)
-		strncpy(db_conf->username,buf,32);
-	else
-		strcpy(db_conf->username,"admin");
-
-	if( CFG_get_key(filename, "DB", "PASSWORD", buf ) == CFG_OK)
-		strncpy(db_conf->password,buf,32);
-	else
-		strcpy(db_conf->password,"admin");	
 
 
+	
+	strcpy(db_conf->host,"192.168.1.41");
+	strcpy(db_conf->database,"db_spc");
+	strcpy(db_conf->username,"admin");
+	strcpy(db_conf->password,"admin");	
     sprintf(mysql_ops.db_sys, "mysql");
     mysql_ops.db_conf = db_conf;
     mysql_ops.conn    = (void *)mysql_ops.open(db_conf);
     if (!mysql_ops.conn)
     {
-        OSA_DEBUG(DEBUG_PRINT,DEBUG_MODULE_MYSQL,"[db_init_mysql] connect db failure!\n");
+      
         return NULL;
     }
 

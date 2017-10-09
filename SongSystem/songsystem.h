@@ -2,21 +2,14 @@
 #define SONGSYSTEM_H
 
 #include <QtGui/QMainWindow>
-#include <QMessageBox>
-#include <QString>
+#include "commen.h"
 #include "ui_songsystem.h"
 #include "buymode.h"
 #include "salemode.h"
 #include "stockmode.h"
 #include "sign.h"
 
-typedef enum
-{
-	PERMISSION_NOBODY,
-	PERMISSION_USER,
-	PERMISSION_ROOT,
 
-}ePermissonUser;
 
 
 class SongSystem : public QMainWindow ,public Ui_SongSystemClass
@@ -28,7 +21,7 @@ public:
 	~SongSystem();
 
 public slots: 
-	void SetUserMode();
+	void SetUserMode(ePermissonUser);
 	void Saleshow();
 	void Buyshow();
 	void Stockshow();
@@ -40,6 +33,7 @@ private:
 	SaleMode salemode;
 	StockMode stockmode;
 	BuyMode buymode;
+	db_ops *m_db;
 };
 
 #endif // SONGSYSTEM_H

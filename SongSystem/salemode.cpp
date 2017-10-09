@@ -3,7 +3,7 @@
 SaleMode::SaleMode(QWidget *parent)
 	: QWidget(parent)
 {
-	ui.setupUi(this);
+	setupUi(this);
 }
 
 SaleMode::~SaleMode()

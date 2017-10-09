@@ -72,6 +72,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="buymode.cpp" />
+    <ClCompile Include="db_mysql.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_buymode.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -140,6 +141,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="commen.h" />
     <ClInclude Include="GeneratedFiles\ui_buymode.h" />
     <ClInclude Include="GeneratedFiles\ui_sign.h" />
     <CustomBuild Include="sign.h">
