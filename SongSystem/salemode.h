@@ -1,22 +1,30 @@
 #ifndef SALEMODE_H
 #define SALEMODE_H
 
-#include <QWidget>
-#include "commen.h"
+#include <QDialog>
 #include "ui_salemode.h"
+#include "commen.h"
 
-class SaleMode : public QWidget,public Ui_SaleMode
+class SaleMode : public QDialog,public Ui_SaleMode
 {
 	Q_OBJECT
 
 public:
 	SaleMode(QWidget *parent = 0);
 	~SaleMode();
-	void setDb(db_ops *db){m_db=db;};
-
+	QString cost_price;
+	int m_num;
+public slots:
+		void Sale();
+		void Print();
+		void Cancel();
+		void clearInfo();
+signals:
+		void sigSaleBill();
+		void sigSaleNum(int);
 private:
+	
 	//Ui::SaleMode ui;
-	db_ops *m_db;
 };
 
 #endif // SALEMODE_H

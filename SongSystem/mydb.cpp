@@ -170,14 +170,14 @@ int db_flush(const char *table)
     return ret;
 }
 
-int db_init()
+db_ops * db_init()
 {
 
     db_ptr = db_init_mysql();
 
     if (!db_ptr)
     {
-        return DB_FAILURE;
+        return db_ptr;
     }
     gndb_ops = db_ptr;
 
@@ -189,7 +189,7 @@ int db_init()
 
 	_beginthread(DbExecuteThread,0,NULL);
 
-    return DB_SUCCESS;
+    return gndb_ops;
 }
 
 int  db_geterrno()

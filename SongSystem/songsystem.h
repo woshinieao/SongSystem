@@ -20,20 +20,28 @@ public:
 	SongSystem(QWidget *parent = 0, Qt::WFlags flags = 0);
 	~SongSystem();
 
+
 public slots: 
 	void SetUserMode(ePermissonUser);
-	void Saleshow();
+	void SaleListshow();
 	void Buyshow();
 	void Stockshow();
 private:
 	//	Ui::SongSystemClass ui;
-	ePermissonUser  usermode; 
 
+	void InitDb();
+
+	ePermissonUser  usermode; 
 	Sign signmode;
-	SaleMode salemode;
+	
 	StockMode stockmode;
 	BuyMode buymode;
 	db_ops *m_db;
+	
+	QList<tParam> brandList;
+	QList<tParam> functionList;
+	QList<tParam> typeList;
+
 };
 
 #endif // SONGSYSTEM_H

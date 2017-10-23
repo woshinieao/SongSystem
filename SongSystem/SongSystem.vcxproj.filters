@@ -50,15 +50,6 @@
     <ClCompile Include="GeneratedFiles\qrc_songsystem.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="salemode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_salemode.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_salemode.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="stockmode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -89,6 +80,36 @@
     <ClCompile Include="db_mysql.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="combox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_combox.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_combox.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="mydb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="typeadd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_typeadd.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_typeadd.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="salemode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_salemode.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_salemode.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="songsystem.h">
@@ -99,12 +120,6 @@
     </CustomBuild>
     <CustomBuild Include="songsystem.qrc">
       <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="salemode.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="salemode.ui">
-      <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="stockmode.h">
       <Filter>Header Files</Filter>
@@ -124,12 +139,27 @@
     <CustomBuild Include="sign.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="commen.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="combox.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="typeadd.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="typeadd.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="salemode.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="salemode.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_songsystem.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_salemode.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_stockmode.h">
@@ -141,8 +171,14 @@
     <ClInclude Include="GeneratedFiles\ui_sign.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="commen.h">
+    <ClInclude Include="mydb.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_typeadd.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_salemode.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

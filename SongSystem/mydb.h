@@ -80,7 +80,7 @@ void *db_getfirst(const char *sql);
 void *db_getnext();
 int   db_flush(const char *table);
 
-int  db_init();
+db_ops *  db_init();
 void db_shutdown();
 int  db_restart();
 

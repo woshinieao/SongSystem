@@ -201,12 +201,9 @@ db_ops *db_init_mysql()
     {
         return NULL;
     }
-	
 
-
-	
-	strcpy(db_conf->host,"192.168.1.41");
-	strcpy(db_conf->database,"db_spc");
+	strcpy(db_conf->host,"192.168.1.144");
+	strcpy(db_conf->database,"db_ir");
 	strcpy(db_conf->username,"admin");
 	strcpy(db_conf->password,"admin");	
     sprintf(mysql_ops.db_sys, "mysql");
@@ -214,7 +211,7 @@ db_ops *db_init_mysql()
     mysql_ops.conn    = (void *)mysql_ops.open(db_conf);
     if (!mysql_ops.conn)
     {
-      
+		
         return NULL;
     }
 
