@@ -22,7 +22,7 @@ public slots:
 		void SignInshow();
 		void SignOutshow();
 signals:
-		void sigUser(ePermissonUser);
+		void sigUser(int);
 private:
 	//Ui::Sign ui;
 };

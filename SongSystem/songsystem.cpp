@@ -21,7 +21,7 @@ SongSystem::SongSystem(QWidget *parent, Qt::WFlags flags)
 
 }
 
-void SongSystem::SetUserMode(ePermissonUser user)
+void SongSystem::SetUserMode(int user)
 {
 	usermode = user;
 	//InitDb();

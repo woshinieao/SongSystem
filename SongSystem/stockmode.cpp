@@ -341,21 +341,25 @@ void StockMode::SelectSaleRow()
 	if(m_mode == SALE_SHOW)
 		return ;
 	int index = tableWidget->currentRow();
+	salemode.show();
 
+	
 	QDateTime time;  
 	QString idstr = tableWidget->item(index,8)->text();
 	time = QDateTime::fromString(idstr, "yyyy-MM-dd hh:mm:ss");
 	salemode.lbId->setText(QString::number(time.toTime_t()));
 
 	
-	salemode.lbName->setText(tableWidget->item(index,0)->text());
-	salemode.lbBrand->setText(tableWidget->item(index,1)->text());
-	salemode.lbFunction->setText(tableWidget->item(index,2)->text());
-	salemode.lbType->setText(tableWidget->item(index,3)->text());
-	salemode.m_num = tableWidget->item(index,4)->text().toInt();
+	salemode.lbName->setText(tableWidget->item(index,1)->text());
+	
+	
+	salemode.lbBrand->setText(tableWidget->item(index,2)->text());
+	salemode.lbFunction->setText(tableWidget->item(index,3)->text());
+	salemode.lbType->setText(tableWidget->item(index,4)->text());
+	salemode.m_num = tableWidget->item(index,5)->text().toInt();
 	salemode.lbTime->setText(time.currentDateTime().toString( "yyyy-MM-dd hh:mm:ss"));
-	salemode.cost_price = tableWidget->item(index,5)->text();
-	salemode.show();
+	salemode.cost_price = tableWidget->item(index,6)->text();
+	
 
 }
 
@@ -363,7 +367,8 @@ void StockMode::SelectSaleRow()
 void StockMode::ProductNumUpdate(int num)
 {
 	int index = tableWidget->currentRow();
-	tableWidget->item(index,4)->setText(QString::number(num));
+
+	tableWidget->item(index,5)->setText(QString::number(num));
 	
 
 }

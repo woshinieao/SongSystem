@@ -4,7 +4,7 @@
 #include <QWidget>
 #include "ui_buymode.h"
 #include "commen.h"
-#include "combox.h"
+//#include "combox.h"
 class BuyMode : public QWidget,public Ui_BuyMode
 {
 	Q_OBJECT

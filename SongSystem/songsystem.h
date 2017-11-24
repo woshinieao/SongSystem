@@ -22,7 +22,7 @@ public:
 
 
 public slots: 
-	void SetUserMode(ePermissonUser);
+	void SetUserMode(int);
 	void SaleListshow();
 	void Buyshow();
 	void Stockshow();
@@ -31,7 +31,7 @@ private:
 
 	void InitDb();
 
-	ePermissonUser  usermode; 
+	int  usermode; 
 	Sign signmode;
 	
 	StockMode stockmode;
